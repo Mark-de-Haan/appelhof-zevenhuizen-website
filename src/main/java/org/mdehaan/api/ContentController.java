@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 import static java.util.Objects.requireNonNull;
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequestMapping("/api/content")
@@ -41,7 +42,7 @@ public class ContentController
 		return contentRepository.findByNamespace(namespace);
 	}
 
-	@PostMapping
+	@PostMapping(consumes = APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.CREATED)
 	public Content create(@RequestBody Content content)
 	{
