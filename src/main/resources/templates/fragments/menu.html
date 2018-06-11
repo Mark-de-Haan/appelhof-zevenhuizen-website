@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html lang="nl" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <nav th:fragment="navigation" class="navbar navbar-expand navbar-dark bg-dark" role="navigation">
+        <div class="container">
+            <span class="navbar-brand mb-0 mr-5 display-1">
+                <strong>Cafetaria de Appelhof</strong>
+            </span>
+
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item my-3">
+                    <a class="nav-link" th:classappend="${active_menu_item} == 'home' ? active : ''" href="/">Home</a>
+                </li>
+                <li class="nav-item my-3">
+                    <a class="nav-link" th:classappend="${active_menu_item} == 'events' ? active : ''" href="/events">Evenementen</a>
+                </li>
+                <li class="nav-item my-3">
+                    <a class="nav-link" th:classappend="${active_menu_item} == 'about' ? active : ''" href="/about">Over ons</a>
+                </li>
+            </ul>
+
+            <span class="navbar-text">
+                <i class="fa fa-phone" aria-hidden="true"></i> 0594 - 63 15 66
+            </span>
+        </div>
+    </nav>
+</html>

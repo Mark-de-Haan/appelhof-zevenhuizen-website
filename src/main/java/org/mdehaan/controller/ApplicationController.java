@@ -10,14 +10,21 @@ public class ApplicationController
     @GetMapping("/")
     public String index(Model model)
     {
-        model.addAttribute("active_menu", "index");
+        model.addAttribute("active_menu_item", "home");
         return "index";
     }
 
-    @GetMapping("/agenda")
-    public String agenda(Model model)
+    @GetMapping("/events")
+    public String events(Model model)
     {
-        model.addAttribute("active_menu", "agenda");
-        return "agenda";
+        model.addAttribute("active_menu_item", "events");
+        return "events";
+    }
+
+    @GetMapping("/about")
+    public String about(Model model)
+    {
+        model.addAttribute("active_menu_item", "about");
+        return "about";
     }
 }
