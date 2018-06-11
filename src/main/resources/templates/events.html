@@ -10,7 +10,22 @@
         </header>
 
         <main role="main" class="container">
-            Agenda!!
+            <div id="event-container" class="mt-2">
+                <div class="card" v-for="event in events">
+                    <div class="card-header">
+                        <h1>{{ event.eventName }}</h1>
+                    </div>
+
+                    <div class="card-body">
+                        <p v-html="event.eventDescription"></p>
+                    </div>
+
+                    <div class="card-footer">
+                        <small v-if="event.updateDateTime != null">Last updated on: {{ event.updateDateTime }}</small>
+                        <small v-else>Created on: {{ event.creationDateTime }} </small>
+                    </div>
+                </div>
+            </div>
         </main>
 
         <footer class="footer">
@@ -18,3 +33,23 @@
         </footer>
     </body>
 </html>
+
+<script>
+    new Vue({
+        el: '#event-container',
+        data: {
+            events: []
+        },
+        created () {
+            var self = this
+            $.ajax({
+                method: 'GET',
+                url: '/events/list',
+                dataType: 'json',
+                success: function (response) {
+                    self.events = response
+                }
+            });
+        }
+    })
+</script>

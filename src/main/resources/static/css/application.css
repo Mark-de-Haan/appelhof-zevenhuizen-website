@@ -87,3 +87,7 @@ body {
         margin-top: 7rem;
     }
 }
+
+.login-card-container {
+    height: 75vh;
+}

@@ -1,20 +1,18 @@
 package org.mdehaan.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.validation.Valid;
 
 @Controller
 public class AuthenticationController {
 
-    @GetMapping("/login")
-    public String login()
+    @PostMapping("/authenticate")
+    public String login(@Valid @ModelAttribute String password)
     {
-        return "login";
-    }
-
-    @GetMapping("/logout")
-    public String logout()
-    {
-        return "login";
+        System.out.println("password = " + password);
+        return "home";
     }
 }

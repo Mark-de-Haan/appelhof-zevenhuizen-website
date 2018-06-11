@@ -11,7 +11,7 @@ public class ApplicationController
     public String index(Model model)
     {
         model.addAttribute("active_menu_item", "home");
-        return "index";
+        return "home";
     }
 
     @GetMapping("/events")
@@ -26,5 +26,11 @@ public class ApplicationController
     {
         model.addAttribute("active_menu_item", "about");
         return "about";
+    }
+
+    @GetMapping("/login")
+    public String login()
+    {
+        return "login";
     }
 }

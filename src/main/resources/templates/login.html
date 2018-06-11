@@ -3,58 +3,38 @@
     <head th:replace="fragments/header :: header"></head>
 
     <body>
+        <main role="main">
+            <div class="container">
+                <div class="row login-card-container">
+                    <div class="col-12 h-100 d-flex d-column justify-content-center align-items-center">
+                        <div class="card">
+                            <div class="card-header">
+                                <h1 class="display-4">Login als admin</h1>
+                            </div>
 
-        <section class="h-100">
-            <div class="container h-100">
-                <div class="row justify-content-md-center align-items-center h-100">
-                    <div class="card-wrapper">
-                        <div class="brand">
-                            <img src="img/logo.jpg">
-                        </div>
-                        <div class="card fat">
                             <div class="card-body">
-                                <h4 class="card-title">Login</h4>
-                                <form method="POST">
-
+                                <div th:if="${(param.error != null) and (param.error[0] == 'true')}" class="error-container">
+                                    <div class="alert alert-warning" role="alert">
+                                        <strong>Sorry, maar je wachtwoord is fout...</strong>
+                                    </div>
+                                </div>
+                                <form method="POST" action="/authenticate">
                                     <div class="form-group">
-                                        <label for="email">E-Mail Address</label>
-
-                                        <input id="email" type="email" class="form-control" name="email" value="" required autofocus>
+                                        <label for="password">Wachtwoord</label>
+                                        <input id="password" type="password" class="form-control" name="password" required>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label for="password">Password
-                                            <a href="forgot.html" class="float-right">
-                                                Forgot Password?
-                                            </a>
-                                        </label>
-                                        <input id="password" type="password" class="form-control" name="password" required data-eye>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>
-                                            <input type="checkbox" name="remember"> Remember Me
-                                        </label>
-                                    </div>
-
-                                    <div class="form-group no-margin">
+                                    <div class="form-group m-0">
                                         <button type="submit" class="btn btn-primary btn-block">
                                             Login
                                         </button>
                                     </div>
-                                    <div class="margin-top20 text-center">
-                                        Don't have an account? <a href="register.html">Create One</a>
-                                    </div>
                                 </form>
                             </div>
                         </div>
-
-                        <footer class="footer">
-                            <div th:replace="fragments/footer :: footer"></div>
-                        </footer>
                     </div>
                 </div>
             </div>
-        </section>
+        </main>
     </body>
 </html>

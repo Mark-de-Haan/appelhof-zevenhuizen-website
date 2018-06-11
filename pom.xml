@@ -84,6 +84,26 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!-- Google utility libraries -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>23.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.auto.value</groupId>
+            <artifactId>auto-value-annotations</artifactId>
+            <version>1.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.auto.value</groupId>
+            <artifactId>auto-value</artifactId>
+            <version>1.6</version>
+            <scope>provided</scope>
+        </dependency>
+
         <!-- Spring security -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
